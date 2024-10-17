@@ -1,37 +1,32 @@
-const mongoose = require("mongoose");
+const mongoose = require("mongoose")
+
 
 const PostSchema = new mongoose.Schema(
     {
-        title: {
+        title:{
             type: String,
-            required: true,
-            unique: true,
-            trim: true, // Clean up whitespace
+            required:true,
+            unique:true
         },
-        desc: {
-            type: String,
-            required: true,
+        desc:{
+            type:String,
+            required:true
         },
-        photo: {
-            type: String,
-            required: false,
-            default: "", // Provide a default if necessary
+        photo:{
+            type:String,
+            required:false
         },
-        username: {
-            type: String,
-            required: true,
+        username:{
+            type:String,
+            required: true
         },
-        categories: {
-            type: [String], // Specify array of strings for better clarity
-            required: false,
-        },
-        status: {
-            type: String,
-            enum: ["draft", "published"], // Manage visibility
-            default: "draft",
-        },
+        categories:{
+            type:Array,
+            required:false
+        }
+
     },
-    { timestamps: true }
+    {timestamps: true}
 );
 
 module.exports = mongoose.model("Post", PostSchema);
